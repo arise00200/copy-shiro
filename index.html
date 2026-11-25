@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مملكة شيرو | 王国シロ</title>
+  <meta name="description" content="مملكة شيرو — مجتمع أنمي ياباني هادئ بنقابات مستقلة، خصوصية تامة وبيئة راقية لعشاق الأنمي.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Aref+Ruqaa:wght@400;700&family=Shippori+Mincho+B1:wght@400;500;700;800&family=Reem+Kufi:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <style>
+    :root {
+      --bg-main: #0d0d12;
+      --card-bg: #1c1c24;
+      --header-bg: #0a0a0f;
+      --accent-muted: #c84b4b;
+      --accent-soft: #8a7cc3;
+      --accent-gold: #c9a961;
+      --accent-gold-soft: #e6c988;
+      --accent-success: #4caf7d;
+      --accent-whatsapp: #25d366;
+      --accent-warn: #d9a441;
+      --text-title: #f0f0f5;
+      --text-body: #a0a0b0;
+      --border-color: rgba(255, 255, 255, 0.07);
+      --badge-boys: #3a7bd5;
+      --badge-girls: #d65b7a;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: "Tajawal", system-ui, sans-serif; }
+    html { scroll-behavior: smooth; }
+    body { background-color: var(--bg-main); color: var(--text-body); line-height: 1.7; min-height: 100vh; }
+    body.modal-open { overflow: hidden; }
+    :focus-visible { outline: 2px solid var(--accent-gold); outline-offset: 3px; border-radius: 6px; }
+
+    /* ===== HEADER ===== */
+    header { background: var(--header-bg); border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 900; }
+    .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1rem 1.5rem; flex-wrap: wrap; }
+    .logo { font-size: 1.4rem; font-weight: 700; color: var(--text-title); text-decoration: none; display: flex; align-items: center; gap: 10px; }
+    .logo i { color: var(--accent-gold); }
+    .logo span { color: var(--accent-gold); font-weight: 700; }
+    .logo-jp { font-family: "Shippori Mincho B1", serif; font-style: normal; font-size: 0.85rem; color: var(--accent-gold-soft); opacity: 0.6; letter-spacing: 0.1em; border-right: 1px solid var(--border-color); padding-right: 10px; margin-right: 4px; }
+    .header-right { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+    .logo-sub { font-size: 0.85rem; color: var(--text-body); }
+    .sync-indicator { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; font-size: 0.72rem; font-weight: 500; border: 1px solid var(--border-color); background: rgba(255, 255, 255, 0.02); transition: all 0.3s; }
+    .sync-indicator.loading { color: var(--text-body); }
+    .sync-indicator.cloud { color: var(--accent-success); border-color: rgba(76, 175, 125, 0.35); background: rgba(76, 175, 125, 0.08); }
+    .sync-indicator.local { color: var(--accent-warn); border-color: rgba(217, 164, 65, 0.35); background: rgba(217, 164, 65, 0.08); }
+
+    /* ===== NAV ===== */
+    nav { background: #14141b; border-bottom: 1px solid var(--border-color); position: sticky; top: 64px; z-index: 899; }
+    .nav-links { max-width: 1200px; margin: 0 auto; display: flex; gap: 24px; list-style: none; padding: 0.75rem 1.5rem; overflow-x: auto; }
+    .nav-links a { color: var(--text-body); text-decoration: none; font-weight: 500; font-size: 0.92rem; white-space: nowrap; transition: color 0.2s ease; }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent-gold); }
+
+    /* ===== ROYAL HERO ===== */
+    .royal-hero { position: relative; min-height: 88vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 5rem 1.5rem 4rem; overflow: hidden; background: radial-gradient(ellipse at 50% 0%, #1a1526 0%, #0a0a0f 55%), radial-gradient(ellipse at 50% 100%, rgba(201, 169, 97, 0.08), transparent 60%); border-bottom: 1px solid var(--border-color); }
+    .royal-hero::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(rgba(201, 169, 97, 0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(201, 169, 97, 0.025) 1px, transparent 1px); background-size: 50px 50px; pointer-events: none; -webkit-mask-image: radial-gradient(ellipse at center, black 20%, transparent 70%); mask-image: radial-gradient(ellipse at center, black 20%, transparent 70%); }
+    .hero-glow { position: absolute; top: -15%; left: 50%; transform: translateX(-50%); width: 900px; height: 900px; background: radial-gradient(circle, rgba(201, 169, 97, 0.14) 0%, transparent 55%); pointer-events: none; animation: glowPulse 7s ease-in-out infinite; }
+    @keyframes glowPulse { 0%, 100% { opacity: 0.7; transform: translateX(-50%) scale(1); } 50% { opacity: 1; transform: translateX(-50%) scale(1.08); } }
+    .hero-vertical { position: absolute; top: 50%; writing-mode: vertical-rl; font-family: "Shippori Mincho B1", serif; font-size: 1.4rem; letter-spacing: 0.9em; color: rgba(201, 169, 97, 0.18); pointer-events: none; user-select: none; }
+    .hero-vertical-left { right: 4%; transform: translateY(-50%); }
+    .hero-vertical-right { left: 4%; transform: translateY(-50%) rotate(180deg); }
+    .petals { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+    .petal { position: absolute; top: -20px; width: 11px; height: 11px; background: radial-gradient(circle at 30% 30%, #ffc0cb, #d65b7a); border-radius: 50% 0 50% 50%; opacity: 0; animation: petalFall linear infinite; filter: blur(0.3px); }
+    @keyframes petalFall { 0% { transform: translateY(-20px) translateX(0) rotate(0deg); opacity: 0; } 10% { opacity: 0.55; } 90% { opacity: 0.55; } 100% { transform: translateY(95vh) translateX(60px) rotate(720deg); opacity: 0; } }
+    .hero-content { position: relative; z-index: 3; max-width: 820px; }
+    .crest { width: 96px; height: 96px; border-radius: 50%; background: radial-gradient(circle at 30% 30%, #2a2a35, #14141b); border: 2px solid var(--accent-gold); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.8rem; position: relative; box-shadow: 0 0 40px rgba(201, 169, 97, 0.35), inset 0 0 20px rgba(201, 169, 97, 0.1); animation: crestFloat 4s ease-in-out infinite; }
+    @keyframes crestFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+    .crest::before { content: ""; position: absolute; inset: -10px; border-radius: 50%; border: 1px solid rgba(201, 169, 97, 0.3); animation: crestSpin 25s linear infinite; }
+    .crest::after { content: ""; position: absolute; inset: -10px; border-radius: 50%; border: 1px dashed rgba(201, 169, 97, 0.15); animation: crestSpin 35s linear infinite reverse; }
+    @keyframes crestSpin { to { transform: rotate(360deg); } }
+    .crest-char { font-family: "Shippori Mincho B1", serif; font-size: 2.8rem; font-weight: 700; color: var(--accent-gold); text-shadow: 0 0 25px rgba(201, 169, 97, 0.7); }
+    .hero-jp { font-family: "Shippori Mincho B1", serif; font-size: clamp(1.8rem, 4.5vw, 2.8rem); font-weight: 700; color: var(--accent-gold); letter-spacing: 0.2em; margin-bottom: 0.8rem; text-shadow: 0 0 50px rgba(201, 169, 97, 0.45); animation: fadeInUp 1s ease 0.1s both; }
+    .hero-ar { font-family: "Aref Ruqaa", serif; font-size: clamp(3rem, 8vw, 6rem); font-weight: 700; line-height: 1.15; margin-bottom: 0.4rem; background: linear-gradient(180deg, #ffffff 0%, #e6c988 55%, #c9a961 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 35px rgba(201, 169, 97, 0.35)); animation: fadeInUp 1s ease 0.25s both; }
+    .hero-divider { display: flex; align-items: center; justify-content: center; gap: 14px; margin: 1rem auto 1.4rem; max-width: 320px; color: var(--accent-gold); animation: fadeInUp 1s ease 0.35s both; }
+    .hero-divider::before, .hero-divider::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--accent-gold), transparent); }
+    .hero-divider span { font-size: 0.75rem; letter-spacing: 0.5em; }
+    .hero-sub { font-family: "Tajawal", sans-serif; font-size: clamp(0.85rem, 1.6vw, 1rem); color: var(--accent-gold-soft); letter-spacing: 0.15em; margin-bottom: 1.6rem; opacity: 0.75; animation: fadeInUp 1s ease 0.45s both; }
+    .hero-desc { font-size: 1.02rem; color: var(--text-body); max-width: 620px; margin: 0 auto 2.2rem; line-height: 1.9; animation: fadeInUp 1s ease 0.55s both; }
+    .hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; animation: fadeInUp 1s ease 0.65s both; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 8px; padding: 0.85rem 2rem; background: linear-gradient(135deg, var(--accent-gold), #a88743); color: #0a0a0f; text-decoration: none; border-radius: 8px; font-weight: 700; font-size: 0.95rem; border: none; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 20px rgba(201, 169, 97, 0.25); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(201, 169, 97, 0.4); }
+    .btn-secondary { display: inline-flex; align-items: center; gap: 8px; padding: 0.85rem 2rem; background: transparent; color: var(--text-title); text-decoration: none; border-radius: 8px; font-weight: 700; font-size: 0.95rem; border: 1px solid rgba(201, 169, 97, 0.35); cursor: pointer; transition: background 0.2s, border-color 0.2s; }
+    .btn-secondary:hover { background: rgba(201, 169, 97, 0.08); border-color: var(--accent-gold); }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* ===== STATS ===== */
+    .stats-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; padding: 2rem 1.5rem; margin: 3rem 0; background: linear-gradient(135deg, rgba(201, 169, 97, 0.08), rgba(138, 124, 195, 0.06)); border: 1px solid rgba(201, 169, 97, 0.15); border-radius: 16px; position: relative; overflow: hidden; }
+    .stats-bar::before { content: "王国"; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: "Shippori Mincho B1", serif; font-size: 8rem; color: rgba(201, 169, 97, 0.04); pointer-events: none; letter-spacing: 0.2em; }
+    .stat { text-align: center; position: relative; z-index: 1; }
+    .stat-number { font-family: "Reem Kufi", sans-serif; font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 700; color: var(--accent-gold); line-height: 1; margin-bottom: 0.4rem; }
+    .stat-label { font-size: 0.82rem; color: var(--text-body); }
+
+    .section-title { font-size: 1.35rem; font-weight: 700; color: var(--text-title); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 12px; padding-top: 1rem; scroll-margin-top: 130px; }
+    .section-title i { color: var(--accent-gold); font-size: 1.1rem; }
+
+    /* ===== MEMBERSHIP BANNER ===== */
+    .membership-banner { display: none; align-items: center; gap: 14px; padding: 1rem 1.4rem; border-radius: 12px; background: linear-gradient(135deg, rgba(76, 175, 125, 0.12), rgba(76, 175, 125, 0.03)); border: 1px solid rgba(76, 175, 125, 0.35); margin-bottom: 2rem; font-size: 0.95rem; color: var(--text-title); }
+    .membership-banner.is-visible { display: flex; }
+    .membership-banner i { color: var(--accent-success); font-size: 1.3rem; }
+    .membership-banner strong { color: var(--accent-success); }
+    .membership-banner button { margin-right: auto; background: transparent; border: 1px solid rgba(255,255,255,0.15); color: var(--text-body); padding: 0.4rem 0.9rem; border-radius: 6px; cursor: pointer; font-family: inherit; font-size: 0.82rem; transition: all 0.2s; }
+    .membership-banner button:hover { background: rgba(255,255,255,0.06); color: var(--text-title); }
+
+    .filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 1.8rem; }
+    .filter-btn { padding: 8px 20px; border-radius: 999px; background: var(--card-bg); border: 1px solid var(--border-color); color: var(--text-body); font-size: 0.88rem; font-weight: 500; font-family: inherit; cursor: pointer; transition: all 0.2s; }
+    .filter-btn:hover { color: var(--text-title); }
+    .filter-btn.is-active { background: var(--accent-gold); border-color: transparent; color: #0a0a0f; font-weight: 700; }
+
+    /* ===== GUILDS ===== */
+    .guilds-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.8rem; margin-bottom: 3.5rem; }
+    .guild-card { background: var(--card-bg); border-radius: 12px; overflow: hidden; border: 1px solid var(--border-color); cursor: pointer; display: flex; flex-direction: column; position: relative; transition: transform 0.25s ease, border-color 0.25s ease; }
+    .guild-card:hover { transform: translateY(-4px); border-color: rgba(255, 255, 255, 0.2); }
+    .guild-card.is-member { border-color: var(--accent-success); box-shadow: 0 0 0 1px var(--accent-success) inset; }
+    .guild-card.is-locked { opacity: 0.9; }
+    .guild-card.is-hidden { display: none; }
+    .guild-img { height: 150px; background-color: #1a1a22; background-size: cover; background-position: center; position: relative; }
+    .badge-tag { position: absolute; top: 12px; right: 12px; padding: 3px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 500; color: #fff; z-index: 1; }
+    .badge-boys { background: var(--badge-boys); }
+    .badge-girls { background: var(--badge-girls); }
+    .badge-member { position: absolute; top: 12px; left: 12px; padding: 3px 10px; border-radius: 20px; font-size: 0.72rem; font-weight: 700; color: #fff; background: var(--accent-success); display: flex; align-items: center; gap: 4px; z-index: 1; }
+    .guild-content { padding: 1.2rem; display: flex; flex-direction: column; flex: 1; }
+    .guild-content h3 { font-size: 1.1rem; color: var(--text-title); margin-bottom: 0.5rem; font-weight: 700; }
+    .guild-meta { display: flex; align-items: center; gap: 5px; font-size: 0.78rem; color: var(--accent-gold-soft); margin-bottom: 0.7rem; opacity: 0.85; }
+    .guild-meta i { font-size: 0.72rem; color: var(--accent-gold); }
+    .guild-content p { font-size: 0.9rem; margin-bottom: 1.2rem; flex: 1; line-height: 1.65; }
+    .btn-details { display: block; width: 100%; padding: 0.55rem; background: #252530; color: var(--text-title); border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.85rem; font-family: inherit; text-align: center; cursor: pointer; transition: background 0.2s; }
+    .guild-card:hover .btn-details { background: #2e2e3d; }
+    .guild-card.is-member .btn-details { background: rgba(76, 175, 125, 0.12); border-color: rgba(76, 175, 125, 0.4); color: var(--accent-success); }
+
+    /* ===== NEW: DEPARTMENTS ===== */
+    .admin-btn { margin-right: auto; background: rgba(201, 169, 97, 0.1); border: 1px solid var(--accent-gold); color: var(--accent-gold); padding: 5px 14px; border-radius: 8px; font-size: 0.8rem; cursor: pointer; transition: all 0.2s; font-family: inherit; }
+    .admin-btn:hover { background: var(--accent-gold); color: #0a0a0f; }
+    .departments-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 3.5rem; }
+    .dept-card { background: var(--card-bg); border-radius: 12px; overflow: hidden; border: 1px solid var(--border-color); display: flex; flex-direction: column; transition: transform 0.3s; }
+    .dept-card:hover { transform: translateY(-5px); border-color: var(--accent-gold-soft); }
+    .dept-img { height: 160px; background-size: cover; background-position: center; background-color: #1a1a22; }
+    .dept-content { padding: 1.2rem; display: flex; flex-direction: column; flex: 1; }
+    .dept-content h3 { color: var(--text-title); font-size: 1.15rem; margin-bottom: 1rem; }
+    .btn-dept { margin-top: auto; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 0.7rem; background: rgba(201, 169, 97, 0.1); color: var(--accent-gold); border: 1px solid rgba(201, 169, 97, 0.3); border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 0.9rem; transition: all 0.2s; }
+    .btn-dept:hover { background: var(--accent-gold); color: #0a0a0f; }
+    .dept-empty { text-align: center; padding: 3rem; background: var(--card-bg); border-radius: 12px; border: 1px dashed var(--border-color); grid-column: 1 / -1; }
+
+    /* ===== ADMIN MODAL ===== */
+    .admin-form-group { margin-bottom: 1rem; text-align: right; }
+    .admin-form-group label { display: block; font-size: 0.85rem; margin-bottom: 0.4rem; color: var(--text-title); }
+    .admin-form-group input { width: 100%; padding: 0.7rem; background: #0d0d12; border: 1px solid var(--border-color); border-radius: 6px; color: var(--text-title); font-family: inherit; outline: none; }
+    .admin-form-group input:focus { border-color: var(--accent-gold); }
+
+    /* ===== FEATURES & FAQ & RULES ===== */
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.2rem; margin-bottom: 3.5rem; }
+    .feature-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 14px; padding: 1.8rem 1.3rem; text-align: center; transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s; }
+    .feature-card:hover { transform: translateY(-4px); border-color: rgba(201, 169, 97, 0.35); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25); }
+    .feature-icon { width: 56px; height: 56px; border-radius: 50%; background: rgba(201, 169, 97, 0.08); border: 1px solid rgba(201, 169, 97, 0.3); display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; color: var(--accent-gold); font-size: 1.3rem; }
+    .feature-card h3 { color: var(--text-title); font-size: 1.05rem; margin-bottom: 0.5rem; font-weight: 700; }
+    .feature-card p { font-size: 0.88rem; line-height: 1.7; }
+
+    .faq-list { margin-bottom: 3.5rem; }
+    .faq-item { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; margin-bottom: 0.8rem; overflow: hidden; transition: border-color 0.25s; }
+    .faq-item.is-open { border-color: rgba(201, 169, 97, 0.35); }
+    .faq-question { width: 100%; padding: 1.1rem 1.3rem; background: transparent; border: none; color: var(--text-title); font-family: inherit; font-size: 0.95rem; font-weight: 700; text-align: right; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 10px; transition: color 0.2s; }
+    .faq-question:hover { color: var(--accent-gold); }
+    .faq-question i { transition: transform 0.3s, color 0.2s; color: var(--text-body); font-size: 0.78rem; }
+    .faq-item.is-open .faq-question i { transform: rotate(180deg); color: var(--accent-gold); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+    .faq-answer p { padding: 0 1.3rem 1.2rem; font-size: 0.9rem; line-height: 1.85; }
+    .faq-item.is-open .faq-answer { max-height: 400px; }
+
+    .rules-box { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.6rem 1.8rem; margin-bottom: 3rem; }
+    .rules-box ul { padding-right: 1.4rem; }
+    .rules-box li { margin-bottom: 0.6rem; font-size: 0.92rem; line-height: 1.75; }
+
+    .cta-section { padding: 3.5rem 2rem; text-align: center; background: radial-gradient(ellipse at center, rgba(201, 169, 97, 0.12), transparent 70%), var(--card-bg); border: 1px solid rgba(201, 169, 97, 0.25); border-radius: 18px; margin-bottom: 3rem; position: relative; overflow: hidden; }
+    .cta-section::before { content: "白の王国"; position: absolute; top: 50%; right: -40px; transform: translateY(-50%); font-family: "Shippori Mincho B1", serif; font-size: 3.5rem; color: rgba(201, 169, 97, 0.05); writing-mode: vertical-rl; letter-spacing: 0.3em; pointer-events: none; }
+    .cta-section h2 { font-family: "Aref Ruqaa", serif; font-size: clamp(1.8rem, 4.5vw, 2.6rem); color: var(--text-title); margin-bottom: 0.6rem; font-weight: 700; }
+    .cta-section p { max-width: 520px; margin: 0 auto 1.6rem; font-size: 0.95rem; }
+
+    /* ===== MODALS ===== */
+    .modal-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.78); backdrop-filter: blur(6px); display: none; justify-content: center; align-items: center; padding: 1.5rem; z-index: 2000; overflow-y: auto; }
+    .modal-overlay.is-open { display: flex; }
+    .modal-card { background: #181820; border-radius: 18px; max-width: 620px; width: 100%; max-height: 92vh; overflow-y: auto; border: 1px solid var(--border-color); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7); position: relative; scrollbar-width: thin; scrollbar-color: rgba(201, 169, 97, 0.3) transparent; }
+    .modal-card::-webkit-scrollbar { width: 6px; }
+    .modal-card::-webkit-scrollbar-thumb { background: rgba(201, 169, 97, 0.3); border-radius: 3px; }
+    .anime-cover { height: 220px; background-size: cover; background-position: center; background-color: #1a1a22; position: relative; }
+    .anime-cover::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 30%, rgba(24, 24, 32, 0.85) 90%, #181820 100%); }
+    .modal-close { position: absolute; top: 12px; left: 12px; background: rgba(0, 0, 0, 0.65); color: #fff; border: 1px solid rgba(255,255,255,0.1); width: 36px; height: 36px; border-radius: 50%; cursor: pointer; font-size: 1.3rem; line-height: 1; z-index: 5; transition: background 0.2s; }
+    .modal-close:hover { background: var(--accent-muted); }
+    .anime-info-bar { display: flex; align-items: flex-end; gap: 16px; padding: 0 1.5rem; margin-top: -55px; position: relative; z-index: 3; }
+    .anime-poster { width: 105px; height: 105px; border-radius: 14px; border: 3px solid #181820; background-color: #1a1a22; background-size: cover; background-position: center; flex-shrink: 0; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6); }
+    .anime-head { flex: 1; padding-bottom: 6px; }
+    .modal-title { font-size: 1.5rem; color: var(--text-title); margin-bottom: 0.4rem; font-weight: 700; line-height: 1.2; }
+    .anime-stats { display: flex; flex-wrap: wrap; gap: 12px; font-size: 0.78rem; color: var(--text-body); }
+    .anime-stats span { display: inline-flex; align-items: center; gap: 5px; }
+    .anime-stats i { color: var(--accent-gold); font-size: 0.75rem; }
+    .anime-status-row { display: flex; align-items: center; gap: 10px; padding: 1rem 1.5rem 0; flex-wrap: wrap; }
+    .anime-status-row .badge-tag { position: static; font-size: 0.72rem; padding: 4px 12px; }
+    .modal-body { padding: 1.4rem 1.5rem 1.8rem; }
+    .founder-card { display: flex; align-items: center; gap: 12px; padding: 0.9rem 1rem; background: linear-gradient(135deg, rgba(201, 169, 97, 0.08), rgba(201, 169, 97, 0.02)); border: 1px solid rgba(201, 169, 97, 0.25); border-radius: 12px; margin-bottom: 1.4rem; }
+    .founder-avatar { width: 48px; height: 48px; border-radius: 50%; border: 2px solid var(--accent-gold); background-color: #1a1a22; background-size: cover; background-position: center; flex-shrink: 0; }
+    .founder-info { flex: 1; display: flex; flex-direction: column; line-height: 1.3; }
+    .founder-label { font-size: 0.7rem; color: var(--accent-gold-soft); letter-spacing: 0.05em; text-transform: uppercase; opacity: 0.85; }
+    .founder-info strong { color: var(--text-title); font-size: 0.98rem; font-weight: 700; margin-top: 2px; }
+    .founder-info small { color: var(--text-body); font-size: 0.75rem; opacity: 0.75; }
+    .founder-card > i { color: var(--accent-gold); font-size: 1.3rem; opacity: 0.6; }
+    .modal-section-h { font-size: 0.92rem; color: var(--accent-gold); font-weight: 700; margin: 1.2rem 0 0.5rem; display: flex; align-items: center; gap: 6px; }
+    .modal-text { font-size: 0.9rem; line-height: 1.8; }
+    .join-link-box { display: flex; align-items: center; gap: 14px; margin-top: 1.4rem; padding: 1rem 1.2rem; background: linear-gradient(135deg, rgba(37, 211, 102, 0.14), rgba(37, 211, 102, 0.03)); border: 1px solid rgba(37, 211, 102, 0.4); border-radius: 12px; transition: all 0.2s; }
+    .join-link-box:hover { border-color: var(--accent-whatsapp); box-shadow: 0 4px 16px rgba(37, 211, 102, 0.15); }
+    .join-link-box > i { color: var(--accent-whatsapp); font-size: 1.8rem; flex-shrink: 0; }
+    .join-link-content { flex: 1; display: flex; flex-direction: column; line-height: 1.3; }
+    .join-link-label { font-size: 0.72rem; color: var(--text-body); opacity: 0.8; }
+    .join-link-content a { color: #7ef3a3; font-weight: 700; font-size: 0.95rem; text-decoration: none; margin-top: 2px; transition: color 0.2s; }
+    .join-link-content a:hover { color: #fff; text-decoration: underline; }
+    .join-link-box.is-locked { opacity: 0.5; pointer-events: none; filter: grayscale(0.6); }
+    .status-box { display: none; margin-top: 1.4rem; padding: 0.9rem 1rem; border-radius: 8px; font-size: 0.87rem; line-height: 1.6; align-items: flex-start; gap: 10px; }
+    .status-box i { margin-top: 3px; }
+    .status-box.is-visible { display: flex; }
+    .status-box.success { background: rgba(76, 175, 125, 0.1); border: 1px solid rgba(76, 175, 125, 0.35); color: #a7e0c2; }
+    .status-box.warn { background: rgba(217, 164, 65, 0.1); border: 1px solid rgba(217, 164, 65, 0.35); color: #f0d79a; }
+    .btn-action { display: block; width: 100%; padding: 0.85rem; background: linear-gradient(135deg, var(--accent-gold), #a88743); color: #0a0a0f; border: none; border-radius: 8px; font-size: 0.95rem; font-weight: 700; font-family: inherit; cursor: pointer; margin-top: 1.4rem; transition: transform 0.15s, box-shadow 0.2s; }
+    .btn-action:hover { box-shadow: 0 6px 22px rgba(201, 169, 97, 0.4); }
+    .btn-action:active { transform: scale(0.99); }
+    .btn-action[disabled] { opacity: 0.4; cursor: not-allowed; background: #3a3a48; color: var(--text-body); box-shadow: none; }
+    .btn-leave { display: none; width: 100%; padding: 0.6rem; background: transparent; color: var(--text-body); border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.82rem; font-family: inherit; cursor: pointer; margin-top: 0.7rem; transition: all 0.2s; }
+    .btn-leave:hover { color: var(--accent-muted); border-color: rgba(200, 75, 75, 0.4); }
+    .btn-leave.is-visible { display: block; }
+
+    .toast { position: fixed; bottom: 24px; left: 50%; transform: translate(-50%, 20px); background: #232330; color: var(--text-title); padding: 0.85rem 1.5rem; border-radius: 8px; border: 1px solid var(--border-color); font-size: 0.9rem; opacity: 0; pointer-events: none; transition: opacity 0.3s ease, transform 0.3s ease; z-index: 3000; max-width: 90vw; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.4); }
+    .toast.is-visible { opacity: 1; transform: translate(-50%, 0); }
+
+    footer { text-align: center; padding: 2.2rem 1.5rem; background: var(--header-bg); font-size: 0.85rem; border-top: 1px solid var(--border-color); }
+    footer .footer-jp { font-family: "Shippori Mincho B1", serif; color: var(--accent-gold-soft); opacity: 0.6; margin-top: 0.3rem; font-size: 0.78rem; letter-spacing: 0.1em; }
+
+    @media (max-width: 900px) { .hero-vertical { display: none; } .royal-hero { min-height: auto; padding: 3.5rem 1.5rem 3rem; } }
+    @media (max-width: 720px) { .stats-bar { grid-template-columns: repeat(2, 1fr); gap: 1.2rem; padding: 1.5rem 1rem; } .stats-bar::before { font-size: 5rem; } }
+    @media (max-width: 600px) { .guilds-grid { grid-template-columns: 1fr; gap: 1.2rem; } .anime-cover { height: 170px; } .anime-poster { width: 80px; height: 80px; } .modal-title { font-size: 1.2rem; } .modal-body { padding: 1.2rem 1.2rem 1.5rem; } .anime-info-bar { padding: 0 1.2rem; margin-top: -45px; } .anime-status-row { padding: 0.8rem 1.2rem 0; } .logo-sub { display: none; } .logo-jp { display: none; } .sync-indicator span:not(.sync-text) { display: none; } .membership-banner { flex-wrap: wrap; } .membership-banner button { margin-right: 0; width: 100%; } .hero-actions { flex-direction: column; } .btn-primary, .btn-secondary { width: 100%; justify-content: center; } }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav-container">
+      <a href="#hero" class="logo">
+        <i class="fa-solid fa-crown"></i>
+        مملكة <span>شيرو</span>
+        <em class="logo-jp">王国シロ</em>
+      </a>
+      <div class="header-right">
+        <span class="logo-sub">مجتمع الأنمي الهادئ</span>
+        <span class="sync-indicator loading" id="syncIndicator" title="حالة الاتصال">
+          <i class="fa-solid fa-circle-notch fa-spin"></i>
+          <span class="sync-text" id="syncText">جاري الاتصال...</span>
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <ul class="nav-links">
+      <li><a href="#hero" class="active">الرئيسية</a></li>
+      <li><a href="#guilds">النقابات</a></li>
+      <li><a href="#departments">الأقسام</a></li>
+      <li><a href="#features">المميزات</a></li>
+      <li><a href="#faq">الأسئلة</a></li>
+      <li><a href="#rules">القوانين</a></li>
+    </ul>
+  </nav>
+
+  <section class="royal-hero" id="hero">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="hero-vertical hero-vertical-left" aria-hidden="true">白の王国</div>
+    <div class="hero-vertical hero-vertical-right" aria-hidden="true">王国シロ</div>
+
+    <div class="petals" aria-hidden="true">
+      <span class="petal" style="left:6%;animation-delay:0s;animation-duration:13s;"></span>
+      <span class="petal" style="left:18%;animation-delay:2s;animation-duration:16s;"></span>
+      <span class="petal" style="left:30%;animation-delay:5s;animation-duration:11s;"></span>
+      <span class="petal" style="left:44%;animation-delay:1s;animation-duration:14s;"></span>
+      <span class="petal" style="left:56%;animation-delay:4s;animation-duration:17s;"></span>
+      <span class="petal" style="left:68%;animation-delay:3s;animation-duration:12s;"></span>
+      <span class="petal" style="left:82%;animation-delay:6s;animation-duration:15s;"></span>
+      <span class="petal" style="left:92%;animation-delay:2.5s;animation-duration:13.5s;"></span>
+    </div>
+
+    <div class="hero-content">
+      <div class="crest" aria-hidden="true">
+        <span class="crest-char">白</span>
+      </div>
+      <div class="hero-jp">王国シロ</div>
+      <h1 class="hero-ar">مملكة شيرو</h1>
+      <div class="hero-divider" aria-hidden="true"><span>✦ ✦ ✦</span></div>
+      <div class="hero-sub">SHIRO NO ŌKOKU · KINGDOM OF SHIRO</div>
+      <p class="hero-desc">
+        مملكة هادئة تجمع عشاق الأنمي الياباني في نقابات مستقلة ومحمية،
+        تحت سماء بيضاء من الهدوء، الخصوصية، والاحترام المتبادل.
+      </p>
+      <div class="hero-actions">
+        <a href="#guilds" class="btn-primary"><i class="fa-solid fa-compass"></i> اكتشف النقابات</a>
+        <a href="#features" class="btn-secondary"><i class="fa-solid fa-crown"></i> تعرّف على المملكة</a>
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+    <section class="stats-bar" aria-label="إحصائيات المملكة">
+      <div class="stat">
+        <div class="stat-number" data-count="8" data-start="0">0</div>
+        <div class="stat-label">نقابات مستقلة</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number" data-count="1240" data-start="0">0</div>
+        <div class="stat-label">عضو مسجّل</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number" data-count="24" data-start="0">0</div>
+        <div class="stat-label">ساعة دعم</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number" data-count="2024" data-start="2018">2018</div>
+        <div class="stat-label">سنة التأسيس</div>
+      </div>
+    </section>
+
+    <div class="membership-banner" id="membershipBanner">
+      <i class="fa-solid fa-circle-check"></i>
+      <span>أنت عضو في <strong id="memberGuildName">—</strong>. لا يمكنك الانضمام لنقابة أخرى إلا بعد المغادرة.</span>
+      <button type="button" id="bannerLeaveBtn">مغادرة النقابة</button>
+    </div>
+
+    <h2 class="section-title" id="guilds">
+      <i class="fa-solid fa-compass"></i> نقابات المملكة
+    </h2>
+
+    <div class="filters" role="tablist" aria-label="فرز النقابات">
+      <button class="filter-btn is-active" data-filter="all" role="tab" aria-selected="true" type="button">الكل</button>
+      <button class="filter-btn" data-filter="boys" role="tab" aria-selected="false" type="button">شباب</button>
+      <button class="filter-btn" data-filter="girls" role="tab" aria-selected="false" type="button">بنات</button>
+    </div>
+
+    <div class="guilds-grid" id="guildsGrid">
+      <div class="guild-card" data-id="knights" tabindex="0" role="button" aria-label="نقابة الفرسان">
+        <div class="guild-img" style="background-image: url('https://images.unsplash.com/photo-1578632767115-351597cf2477?w=600');">
+          <span class="badge-tag badge-boys">شباب</span>
+        </div>
+        <div class="guild-content">
+          <h3>نقابة الفرسان</h3>
+          <div class="guild-meta"><i class="fa-solid fa-users"></i> 184 عضو</div>
+          <p>نقابة مخصصة للشباب لمناقشة أنميات الشونين والقتالات بشكل راقي وهادئ.</p>
+          <button class="btn-details" type="button" tabindex="-1">عرض التعريف بالنقابة</button>
+        </div>
+      </div>
+      <div class="guild-card" data-id="roses" tabindex="0" role="button" aria-label="نقابة الزهرات">
+        <div class="guild-img" style="background-image: url('https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=600');">
+          <span class="badge-tag badge-girls">بنات</span>
+        </div>
+        <div class="guild-content">
+          <h3>نقابة الزهرات</h3>
+          <div class="guild-meta"><i class="fa-solid fa-users"></i> 212 عضو</div>
+          <p>بيئة هادئة ومخصصة للبنات لمشاركة الفنون والانطباعات بكل خصوصية.</p>
+          <button class="btn-details" type="button" tabindex="-1">عرض التعريف بالنقابة</button>
+        </div>
+      </div>
+      <div class="guild-card" data-id="manga" tabindex="0" role="button" aria-label="نقابة قراء المانجا">
+        <div class="guild-img" style="background-image: url('https://images.unsplash.com/photo-1534447677768-be436bb09401?w=600');">
+          <span class="badge-tag badge-boys">شباب</span>
+        </div>
+        <div class="guild-content">
+          <h3>نقابة قراء المانجا</h3>
+          <div class="guild-meta"><i class="fa-solid fa-users"></i> 156 عضو</div>
+          <p>مساحة خاصة بمتابعي المانجا والتحليلات دون حرق على بقية الأعضاء.</p>
+          <button class="btn-details" type="button" tabindex="-1">عرض التعريف بالنقابة</button>
+        </div>
+      </div>
+      <div class="guild-card" data-id="samurai" tabindex="0" role="button" aria-label="نقابة الساموراي">
+        <div class="guild-img" style="background-image: url('https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=600');">
+          <span class="badge-tag badge-boys">شباب</span>
+        </div>
+        <div class="guild-content">
+          <h3>نقابة الساموراي</h3>
+          <div class="guild-meta"><i class="fa-solid fa-users"></i> 98 عضو</div>
+          <p>نقابة عشاق الأنمي التاريخي والساموراي بكل تفاصيله اليابانية الأصيلة.</p>
+          <button class="btn-details" type="button" tabindex="-1">عرض التعريف بالنقابة</button>
+        </div>
+      </div>
+      <div class="guild-card" data-id="detectives" tabindex="0" role="button" aria-label="نقابة المحققين">
+        <div class="guild-img" style="background-image: url('https://images.unsplash.com/photo-1554188248-986adbb73be4?w=600');">
+          <span class="badge-tag badge-boys">شباب</span>
+        </div>
+        <div class="guild-content">
+          <h3>نقابة المحققين</h3>
+          <div class="guild-meta"><i class="fa-solid fa-users"></i> 127 عضو</div>
+          <p>لعشاق أنميات الغموض والتحقيق — نحلل القضايا ونحل الألغاز معاً.</p>
+          <button class="btn-details" type="button" tabindex="-1">عرض التعريف بالنقابة</button>
+        </div>
+      </div>
+      <div class="guild-card" data-id="moon" tabindex="0" role="button" aria-label="نقابة القمر">
+        <div class="guild-img" style="background-image: url('https://images.unsplash.com/photo-1522383225653-ed111181a951?w=600');">
+          <span class="badge-tag badge-girls">بنات</span>
+        </div>
+        <div class="guild-content">
+          <h3>نقابة القمر</h3>
+          <div class="guild-meta"><i class="fa-solid fa-users"></i> 168 عضو</div>
+          <p>نقابة بناتية هادئة لأنميات الرومانسية والدراما والسلايس أوف لايف.</p>
+          <button class="btn-details" type="button" tabindex="-1">عرض التعريف بالنقابة</button>
+        </div>
+      </div>
+      <div class="guild-card" data-id="storytellers" tabindex="0" role="button" aria-label="نقابة حكايات الليل">
+        <div class="guild-img" style="background-image: url('https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=600');">
+          <span class="badge-tag badge-girls">بنات</span>
+        </div>
+        <div class="guild-content">
+          <h3>نقابة حكايات الليل</h3>
+          <div class="guild-meta"><i class="fa-solid fa-users"></i> 143 عضو</div>
+          <p>مساحة للسرد القصصي وكتابة الفان-فيكشن ومشاركة الحكايات الهادئة.</p>
+          <button class="btn-details" type="button" tabindex="-1">عرض التعريف بالنقابة</button>
+        </div>
+      </div>
+      <div class="guild-card" data-id="dreamers" tabindex="0" role="button" aria-label="نقابة الحالمات">
+        <div class="guild-img" style="background-image: url('https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=600');">
+          <span class="badge-tag badge-girls">بنات</span>
+        </div>
+        <div class="guild-content">
+          <h3>نقابة الحالمات</h3>
+          <div class="guild-meta"><i class="fa-solid fa-users"></i> 176 عضو</div>
+          <p>نقابة بناتية لأنميات الخيال، الفانتازيا، والمغامرات الجميلة.</p>
+          <button class="btn-details" type="button" tabindex="-1">عرض التعريف بالنقابة</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== DEPARTMENTS SECTION ===== -->
+    <h2 class="section-title" id="departments">
+      <i class="fa-solid fa-store"></i> أقسام المملكة
+      <button id="adminToggleBtn" class="admin-btn" type="button"><i class="fa-solid fa-lock"></i> لوحة الإدارة</button>
+    </h2>
+
+    <div class="departments-grid" id="departmentsGrid">
+      <div class="dept-empty">
+        <i class="fa-solid fa-box-open" style="font-size:2rem; color:var(--text-body); margin-bottom:1rem;"></i>
+        <p>لم يتم إضافة أقسام بعد. سجل دخول كأدمن لإضافة أول قسم!</p>
+      </div>
+    </div>
+
+    <h2 class="section-title" id="features">
+      <i class="fa-solid fa-crown"></i> مميزات المملكة
+    </h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
+        <h3>خصوصية تامة</h3>
+        <p>نقابات منفصلة ومحمية بضوابط صارمة تضمن لك الراحة الكاملة في الحوارات.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fa-solid fa-layer-group"></i></div>
+        <h3>تنظيم محكم</h3>
+        <p>قنوات منظمة، فرز واضح للفئات، وقوانين تحفظ النظام والاحترام.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fa-solid fa-cloud"></i></div>
+        <h3>مزامنة سحابية</h3>
+        <p>عضويتك محفوظة في السحابة — استعدها على أي جهاز بنفس المتصفح.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fa-solid fa-gem"></i></div>
+        <h3>انتقاء دقيق</h3>
+        <p>عضوية مختارة بعناية، تجربة تجمع عشاق الأنمي الحقيقيين فقط.</p>
+      </div>
+    </div>
+
+    <h2 class="section-title" id="faq">
+      <i class="fa-solid fa-circle-question"></i> الأسئلة الشائعة
+    </h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question" type="button">
+          كيف أنضم لنقابة؟
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>اضغط على البطاقة، ثم اضغط "تقديم طلب الانضمام". عضويتك تُحفظ في السحابة فوراً، ويمكنك الانضمام لمجموعة الواتساب من نفس النافذة.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" type="button">
+          هل يمكنني الانضمام لأكثر من نقابة؟
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>لا، نقابة واحدة فقط في كل وقت — وهذا مفروض على مستوى قاعدة البيانات نفسها.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" type="button">
+          كيف أغادر نقابتي الحالية؟
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>افتح النقابة التي أنت عضو فيها، واضغط "مغادرة هذه النقابة". أو استخدم زر المغادرة في الشريط الأخضر أعلى النقابات.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" type="button">
+          هل عضويتي محفوظة إذا أغلقت الموقع؟
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>نعم، محفوظة في السحابة. لما ترجع، الموقع يتعرف عليك تلقائياً ويعرض نقابتك الحالية بدون ما تحتاج تسجل دخول.</p>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section-title" id="rules">
+      <i class="fa-solid fa-scroll"></i> قوانين المملكة
+    </h2>
+    <div class="rules-box">
+      <ul>
+        <li>احترام جميع الأعضاء والابتعاد عن التعصب أو الإساءة.</li>
+        <li>الحفاظ على خصوصية النقابات وعدم مشاركة المحتوى خارجها.</li>
+        <li>الالتزام بقوانين الحرق في نقاشات الأنمي والمانجا.</li>
+        <li>يمكنك الانضمام لنقابة واحدة فقط — اختر بعناية.</li>
+        <li>الهدوء في الحوار وعدم إثارة المشاكل داخل النقابات.</li>
+      </ul>
+    </div>
+
+    <section class="cta-section">
+      <h2>هل أنت مستعد للانضمام؟</h2>
+      <p>اختر نقابتك وابدأ رحلتك في مملكة شيرو — مساحة بيضاء من الهدوء والأنمي.</p>
+      <a href="#guilds" class="btn-primary"><i class="fa-solid fa-crown"></i> اختر نقابتك الآن</a>
+    </section>
+  </main>
+
+  <!-- ===== GUILD MODAL ===== -->
+  <div class="modal-overlay" id="quietModal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+      <button class="modal-close" id="modalClose" aria-label="إغلاق النافذة" type="button">&times;</button>
+      <div class="anime-cover" id="modalCover"></div>
+      <div class="anime-info-bar">
+        <div class="anime-poster" id="mPoster"></div>
+        <div class="anime-head">
+          <h2 class="modal-title" id="mTitle">اسم النقابة</h2>
+          <div class="anime-stats" id="mStats"></div>
+        </div>
+      </div>
+      <div class="anime-status-row">
+        <span class="badge-tag" id="mBadge">شباب</span>
+      </div>
+      <div class="modal-body">
+        <div class="founder-card">
+          <div class="founder-avatar" id="mFounderAvatar"></div>
+          <div class="founder-info">
+            <span class="founder-label">مؤسس النقابة</span>
+            <strong id="mFounderName"></strong>
+            <small id="mFounderTitle"></small>
+          </div>
+          <i class="fa-solid fa-crown"></i>
+        </div>
+        <div class="modal-section-h"><i class="fa-solid fa-circle-info"></i> عن النقابة والهدف:</div>
+        <p class="modal-text" id="mDesc"></p>
+        <div class="modal-section-h"><i class="fa-solid fa-shield-halved"></i> الضوابط والخصوصية:</div>
+        <p class="modal-text" id="mRules"></p>
+        <div class="join-link-box" id="mJoinLinkBox">
+          <i class="fa-brands fa-whatsapp"></i>
+          <div class="join-link-content">
+            <span class="join-link-label">رابط الانضمام المباشر عبر واتساب</span>
+            <a id="mJoinLink" href="#" target="_blank" rel="noopener">انضم عبر واتساب ↗</a>
+          </div>
+        </div>
+        <div class="status-box" id="mStatusBox">
+          <i class="fa-solid fa-circle-info"></i>
+          <span id="mStatusText"></span>
+        </div>
+        <button class="btn-action" id="joinBtn" type="button">تقديم طلب الانضمام</button>
+        <button class="btn-leave" id="leaveBtn" type="button">مغادرة هذه النقابة</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== ADMIN MODAL ===== -->
+  <div class="modal-overlay" id="adminModal" aria-hidden="true">
+    <div class="modal-card" style="max-width: 450px; padding: 1.5rem; overflow: visible;">
+      <button class="modal-close" id="adminModalClose" aria-label="إغلاق" type="button" style="position:static; float:left;">&times;</button>
+      
+      <!-- STATE 1: Login -->
+      <div id="adminLoginState">
+        <h2 class="modal-title" style="margin-bottom: 1rem;"><i class="fa-solid fa-lock"></i> دخول الإدارة</h2>
+        <div class="admin-form-group">
+          <label>البريد الإلكتروني للأدمن</label>
+          <input type="email" id="adminEmail" placeholder="admin@shiro.com">
+        </div>
+        <div class="admin-form-group">
+          <label>كلمة المرور</label>
+          <input type="password" id="adminPassword" placeholder="********">
+        </div>
+        <button type="button" id="adminLoginBtn" class="btn-action" style="margin-top: 0.5rem;">تسجيل الدخول</button>
+      </div>
+
+      <!-- STATE 2: Add Department -->
+      <div id="adminAddState" style="display: none;">
+        <h2 class="modal-title" style="margin-bottom: 1rem;"><i class="fa-solid fa-plus"></i> إضافة قسم جديد</h2>
+        <form id="addDeptForm">
+          <div class="admin-form-group">
+            <label>اسم القسم / الفرع</label>
+            <input type="text" id="deptName" placeholder="مثال: متجر شيرو" required>
+          </div>
+          <div class="admin-form-group">
+            <label>رابط الصورة (URL)</label>
+            <input type="url" id="deptImage" placeholder="https://example.com/image.jpg" required>
+          </div>
+          <div class="admin-form-group">
+            <label>رابط الموقع / القسم (URL)</label>
+            <input type="url" id="deptUrl" placeholder="https://discord.gg/..." required>
+          </div>
+          <button type="submit" class="btn-action" style="margin-top: 0.5rem;">حفظ القسم</button>
+          <button type="button" id="adminLogoutBtn" class="btn-leave is-visible" style="margin-top: 0.8rem; text-align:center;">تسجيل خروج الأدمن</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <footer>
+    <p>&copy; 2026 مملكة شيرو — مجتمع الأنمي الهادئ.</p>
+    <p class="footer-jp">王国シロ · SHIRO NO ŌKOKU</p>
+  </footer>
+
+  <script type="module">
+    /* ================================================================
+       1. FIREBASE CONFIG (حط القيم بتاعتك هنا)
+    ================================================================ */
+    const firebaseConfig = {
+      apiKey: "REPLACE_WITH_YOUR_API_KEY",
+      authDomain: "REPLACE_WITH_YOUR_PROJECT.firebaseapp.com",
+      projectId: "REPLACE_WITH_YOUR_PROJECT_ID",
+      storageBucket: "REPLACE_WITH_YOUR_PROJECT.appspot.com",
+      messagingSenderId: "REPLACE_WITH_YOUR_SENDER_ID",
+      appId: "REPLACE_WITH_YOUR_APP_ID"
+    };
+
+    const FIREBASE_CONFIGURED = 
+      firebaseConfig.apiKey && !firebaseConfig.apiKey.includes("REPLACE_WITH_");
+
+    // ضع الـ UID الخاص بك هنا (يجب أن يطابق الـ UID في قواعد Firebase)
+    const ADMIN_UID = "j3EnCW7X6FNs6h2lIcTxz3W2VQ13"; 
+
+    /* ================================================================
+       2. DATA & STATE
+    ================================================================ */
+    const guildData = {
+      knights: {
+        title: "نقابة الفرسان", gender: "boys", genderLabel: "شباب",
+        cover: "https://images.unsplash.com/photo-1578632767115-351597cf2477?w=1200",
+        poster: "https://images.unsplash.com/photo-1578632767115-351597cf2477?w=300",
+        members: 184, founded: "2022", posts: 145,
+        founder: { name: "ياسر الحربي", title: "المؤسس والزعيم", avatar: "https://ui-avatars.com/api/?name=Yasser&background=c9a961&color=0a0a0f&bold=true&size=96" },
+        whatsapp: "https://chat.whatsapp.com/SHIROKnightsGroup",
+        desc: "تجمع شبابي هادئ يركز على النقاشات الممتعة لأنميات المغامرة والأكشن دون إزعاج أو تعصب.",
+        rules: "النقابة مخصصة للشباب فقط، وتعتمد الاحترام والهدوء أساساً في الحوار."
+      },
+      roses: {
+        title: "نقابة الزهرات", gender: "girls", genderLabel: "بنات",
+        cover: "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=1200",
+        poster: "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=300",
+        members: 212, founded: "2021", posts: 203,
+        founder: { name: "نورة العتيبي", title: "المؤسسة والقائدة", avatar: "https://ui-avatars.com/api/?name=Noura&background=d65b7a&color=fff&bold=true&size=96" },
+        whatsapp: "https://chat.whatsapp.com/SHIHRosesGroup",
+        desc: "مجتمع محمي وخاص للبنات لمناقشة الأنمي، الرسوم، والاهتمامات المشتركة في بيئة آمنة تماماً.",
+        rules: "تقتصر العضوية على البنات فقط للحفاظ على الخصوصية والراحة."
+      },
+      manga: {
+        title: "نقابة قراء المانجا", gender: "boys", genderLabel: "شباب",
+        cover: "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=1200",
+        poster: "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=300",
+        members: 156, founded: "2020", posts: 312,
+        founder: { name: "فهد القحطاني", title: "المؤسس ورئيس المحررين", avatar: "https://ui-avatars.com/api/?name=Fahad&background=8a7cc3&color=fff&bold=true&size=96" },
+        whatsapp: "https://chat.whatsapp.com/SHIROMangaGroup",
+        desc: "مساحة مخصصة لقراء المانجا والمانهوا لمتابعة الفصول والتحليلات في قنوات منظمة.",
+        rules: "مخصصة للشباب مع الالتزام التام بقوانين الحرق."
+      },
+      samurai: {
+        title: "نقابة الساموراي", gender: "boys", genderLabel: "شباب",
+        cover: "https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=1200",
+        poster: "https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=300",
+        members: 98, founded: "2023", posts: 87,
+        founder: { name: "خالد المطيري", title: "المؤسس وقائد السيف", avatar: "https://ui-avatars.com/api/?name=Khaled&background=3a7bd5&color=fff&bold=true&size=96" },
+        whatsapp: "https://chat.whatsapp.com/SHIROSamuraiGroup",
+        desc: "تجمع متخصص لمحبي أنميات الساموراي والفترة الإيدو، تحليلات عميقة ونقاشات تاريخية راقية.",
+        rules: "مخصصة للشباب، مع الالتزام بالاحترام والابتعاد عن أي محتوى عنيف خارج سياق الأنمي."
+      },
+      detectives: {
+        title: "نقابة المحققين", gender: "boys", genderLabel: "شباب",
+        cover: "https://images.unsplash.com/photo-1554188248-986adbb73be4?w=1200",
+        poster: "https://images.unsplash.com/photo-1554188248-986adbb73be4?w=300",
+        members: 127, founded: "2022", posts: 176,
+        founder: { name: "عبدالله الشهري", title: "المؤسس ورئيس التحقيق", avatar: "https://ui-avatars.com/api/?name=Abdullah&background=c84b4b&color=fff&bold=true&size=96" },
+        whatsapp: "https://chat.whatsapp.com/SHIRODetectivesGroup",
+        desc: "نقابة متخصصة في أنميات الغموض والتحقيق مثل Detective Conan وDeath Note، نقاشات ذكية بلا حرق.",
+        rules: "مخصصة للشباب، ويمنع حرق الأحداث الرئيسية قبل أسبوع من العرض."
+      },
+      moon: {
+        title: "نقابة القمر", gender: "girls", genderLabel: "بنات",
+        cover: "https://images.unsplash.com/photo-1522383225653-ed111181a951?w=1200",
+        poster: "https://images.unsplash.com/photo-1522383225653-ed111181a951?w=300",
+        members: 168, founded: "2021", posts: 154,
+        founder: { name: "سارة الدوسري", title: "المؤسسة وقائدة القمر", avatar: "https://ui-avatars.com/api/?name=Sara&background=d65b7a&color=fff&bold=true&size=96" },
+        whatsapp: "https://chat.whatsapp.com/SHIROMoonGroup",
+        desc: "مساحة أنيقة تجمع البنات لمشاركة أنميات الرومانسية، الدراما، والقصة الجميلة في جو من الهدوء والتفاهم.",
+        rules: "تقتصر العضوية على البنات، مع احترام الذوق العام والابتعاد عن الحرق."
+      },
+      storytellers: {
+        title: "نقابة حكايات الليل", gender: "girls", genderLabel: "بنات",
+        cover: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=1200",
+        poster: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=300",
+        members: 143, founded: "2020", posts: 241,
+        founder: { name: "ريم السبيعي", title: "المؤسسة وراوية الحكايات", avatar: "https://ui-avatars.com/api/?name=Reem&background=8a7cc3&color=fff&bold=true&size=96" },
+        whatsapp: "https://chat.whatsapp.com/SHIROStoryGroup",
+        desc: "مجتمع إبداعي للبنات يجمع الكاتبات وعاشقات القصص لمشاركة فان-فيكشن، مراجعات، وحكايات أنمي أصلية.",
+        rules: "مخصصة للبنات فقط، ويُمنع نشر محتوى غير لائق أو مسروق من كتّاب آخرين."
+      },
+      dreamers: {
+        title: "نقابة الحالمات", gender: "girls", genderLabel: "بنات",
+        cover: "https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=1200",
+        poster: "https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=300",
+        members: 176, founded: "2023", posts: 129,
+        founder: { name: "لمى الغامدي", title: "المؤسسة وقائدة الأحلام", avatar: "https://ui-avatars.com/api/?name=Lama&background=c9a961&color=0a0a0f&bold=true&size=96" },
+        whatsapp: "https://chat.whatsapp.com/SHIRODreamersGroup",
+        desc: "تجمع راقٍ لعاشقات أنميات الفانتازيا والخيال العلمي، مع نقاشات هادئة وتوصيات أسبوعية مختارة.",
+        rules: "تقتصر على البنات، ويُلتزم بالاحترام التام وعدم إفساد الأحداث على الآخرين."
+      }
+    };
+
+    const STORAGE_KEY = "shiro_kingdom_joined_guild";
+    let joinedGuildId = null;
+    let currentGuildId = null;
+    let currentUser = null;
+    let lastFocused = null;
+    let toastTimer = null;
+    let storageMode = "loading"; 
+    let unsubscribeMembership = null;
+    let unsubscribeDepartments = null;
+    let isAdminLoggedIn = false;
+
+    // Firebase variables
+    let db = null, authInstance = null;
+    let fbSetDoc, fbDoc, fbOnSnapshot, fbServerTimestamp, fbDeleteField, fbCollection, fbAddDoc, fbQuery, fbOrderBy;
+    let fbSignInWithEmailAndPassword, fbSignOut, fbOnAuthStateChanged;
+
+    const $ = (id) => document.getElementById(id);
+    const modal = $("quietModal"), modalClose = $("modalClose"), modalCover = $("modalCover"), mPoster = $("mPoster"), mTitle = $("mTitle"), mStats = $("mStats"), mBadge = $("mBadge"), mFounderAvatar = $("mFounderAvatar"), mFounderName = $("mFounderName"), mFounderTitle = $("mFounderTitle"), mDesc = $("mDesc"), mRules = $("mRules"), mJoinLinkBox = $("mJoinLinkBox"), mJoinLink = $("mJoinLink"), mStatusBox = $("mStatusBox"), mStatusText = $("mStatusText"), joinBtn = $("joinBtn"), leaveBtn = $("leaveBtn"), toastEl = $("toast"), membershipBanner = $("membershipBanner"), memberGuildName = $("memberGuildName"), bannerLeaveBtn = $("bannerLeaveBtn"), guildsGrid = $("guildsGrid"), syncIndicator = $("syncIndicator"), syncText = $("syncText");
+
+    const departmentsGrid = $("departmentsGrid"), adminToggleBtn = $("adminToggleBtn"), adminModal = $("adminModal"), adminModalClose = $("adminModalClose"), addDeptForm = $("addDeptForm");
+    const adminLoginState = $("adminLoginState"), adminAddState = $("adminAddState"), adminEmail = $("adminEmail"), adminPassword = $("adminPassword"), adminLoginBtn = $("adminLoginBtn"), adminLogoutBtn = $("adminLogoutBtn");
+
+    function updateSyncIndicator(mode, message) {
+      if (!syncIndicator) return;
+      syncIndicator.classList.remove("loading", "cloud", "local");
+      if (mode === "loading") { syncIndicator.classList.add("loading"); syncIndicator.querySelector("i").className = "fa-solid fa-circle-notch fa-spin"; syncText.textContent = message || "جاري الاتصال..."; }
+      else if (mode === "cloud") { syncIndicator.classList.add("cloud"); syncIndicator.querySelector("i").className = "fa-solid fa-cloud"; syncText.textContent = message || "مزامنة سحابية"; }
+      else if (mode === "local") { syncIndicator.classList.add("local"); syncIndicator.querySelector("i").className = "fa-solid fa-triangle-exclamation"; syncText.textContent = message || "وضع محلي"; }
+    }
+
+    function showToast(msg) {
+      if (!toastEl) return;
+      toastEl.textContent = msg; toastEl.classList.add("is-visible");
+      clearTimeout(toastTimer); toastTimer = setTimeout(() => toastEl.classList.remove("is-visible"), 3500);
+    }
+
+    function refreshCards() {
+      document.querySelectorAll(".guild-card").forEach(card => {
+        const id = card.dataset.id, isMember = joinedGuildId === id, isLocked = !!joinedGuildId && !isMember;
+        card.classList.toggle("is-member", isMember); card.classList.toggle("is-locked", isLocked);
+        const btn = card.querySelector(".btn-details");
+        if (btn) { if (isMember) btn.textContent = "✓ أنت عضو في هذه النقابة"; else if (isLocked) btn.textContent = "🔒 عرض التفاصيل فقط"; else btn.textContent = "عرض التعريف بالنقابة"; }
+        const imgWrap = card.querySelector(".guild-img"); if (!imgWrap) return;
+        let memberBadge = imgWrap.querySelector(".badge-member");
+        if (isMember && !memberBadge) { memberBadge = document.createElement("span"); memberBadge.className = "badge-member"; memberBadge.innerHTML = '<i class="fa-solid fa-check"></i> عضو'; imgWrap.appendChild(memberBadge); } 
+        else if (!isMember && memberBadge) { memberBadge.remove(); }
+      });
+      const joinedGuild = joinedGuildId ? guildData[joinedGuildId] : null;
+      if (joinedGuild && membershipBanner && memberGuildName) { memberGuildName.textContent = joinedGuild.title; membershipBanner.classList.add("is-visible"); } 
+      else if (membershipBanner) { membershipBanner.classList.remove("is-visible"); }
+    }
+
+    function applyFilter(filter) {
+      document.querySelectorAll(".guild-card").forEach(card => {
+        const guild = guildData[card.dataset.id]; if (!guild) return;
+        const match = filter === "all" || guild.gender === filter; card.classList.toggle("is-hidden", !match);
+      });
+    }
+
+    function renderModalContent(id) {
+      const g = guildData[id]; if (!g) return;
+      if (modalCover) modalCover.style.backgroundImage = `url('${g.cover}')`;
+      if (mPoster) mPoster.style.backgroundImage = `url('${g.poster}')`;
+      if (mTitle) mTitle.textContent = g.title;
+      if (mBadge) { mBadge.textContent = g.genderLabel; mBadge.className = `badge-tag badge-${g.gender}`; }
+      if (mStats) mStats.innerHTML = `<span><i class="fa-solid fa-users"></i> ${g.members} عضو</span><span><i class="fa-solid fa-calendar"></i> تأسست ${g.founded}</span><span><i class="fa-solid fa-comment-dots"></i> ${g.posts} منشور</span>`;
+      if (mFounderAvatar) mFounderAvatar.style.backgroundImage = `url('${g.founder.avatar}')`;
+      if (mFounderName) mFounderName.textContent = g.founder.name;
+      if (mFounderTitle) mFounderTitle.textContent = g.founder.title;
+      if (mDesc) mDesc.textContent = g.desc;
+      if (mRules) mRules.textContent = g.rules;
+      if (mJoinLink) { mJoinLink.href = g.whatsapp; mJoinLink.textContent = "انضم عبر واتساب ↗"; }
+
+      if (mStatusBox) mStatusBox.className = "status-box"; if (mStatusText) mStatusText.textContent = "";
+      if (joinBtn) { joinBtn.disabled = false; joinBtn.style.display = "block"; }
+      if (leaveBtn) leaveBtn.classList.remove("is-visible");
+      if (mJoinLinkBox) mJoinLinkBox.classList.remove("is-locked");
+
+      if (!joinedGuildId) { if (joinBtn) joinBtn.textContent = "تقديم طلب الانضمام"; }
+      else if (joinedGuildId === id) {
+        if (joinBtn) { joinBtn.textContent = "✓ أنت عضو بالفعل"; joinBtn.disabled = true; }
+        if (leaveBtn) leaveBtn.classList.add("is-visible");
+        if (mStatusBox) { mStatusBox.classList.add("is-visible", "success"); const ico = mStatusBox.querySelector("i"); if (ico) ico.className = "fa-solid fa-circle-check"; }
+        if (mStatusText) mStatusText.textContent = "أنت عضو في هذه النقابة. يمكنك الآن الانضمام لمجموعة الواتساب من الزر أدناه، أو مغادرتها.";
+      } else {
+        if (joinBtn) { joinBtn.textContent = "لا يمكنك الانضمام"; joinBtn.disabled = true; }
+        if (mJoinLinkBox) mJoinLinkBox.classList.add("is-locked");
+        if (mStatusBox) { mStatusBox.classList.add("is-visible", "warn"); const ico = mStatusBox.querySelector("i"); if (ico) ico.className = "fa-solid fa-lock"; }
+        if (mStatusText) mStatusText.innerHTML = `أنت منضم بالفعل إلى <strong style="color:#f0d79a">${guildData[joinedGuildId].title}</strong>. لا يمكنك الانضمام لأكثر من نقابة واحدة.`;
+      }
+    }
+
+    function openGuildModal(id) {
+      if (!guildData[id]) return;
+      if (modal && modal.classList.contains("is-open") && currentGuildId === id) return;
+      currentGuildId = id; lastFocused = document.activeElement;
+      renderModalContent(id);
+      if (modal) { modal.classList.add("is-open"); modal.setAttribute("aria-hidden", "false"); }
+      document.body.classList.add("modal-open");
+      if (modalClose) modalClose.focus();
+    }
+
+    function closeGuildModal() {
+      if (!modal) return;
+      modal.classList.remove("is-open"); modal.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("modal-open");
+      currentGuildId = null;
+      if (lastFocused && typeof lastFocused.focus === "function") lastFocused.focus();
+    }
+
+    function refreshOpenModal() {
+      if (modal && modal.classList.contains("is-open") && currentGuildId) renderModalContent(currentGuildId);
+    }
+
+    async function performJoin(guildId) {
+      if (joinedGuildId) return false;
+      joinedGuildId = guildId; refreshCards(); refreshOpenModal();
+
+      if (storageMode === "local") {
+        try { localStorage.setItem(STORAGE_KEY, guildId); return true; } 
+        catch (e) { joinedGuildId = null; refreshCards(); return false; }
+      }
+      try {
+        if (!currentUser) throw new Error("No user session");
+        await fbSetDoc(fbDoc(db, "users", currentUser.uid), { joinedGuild: guildId, joinedAt: fbServerTimestamp() }, { merge: true });
+        return true;
+      } catch (err) {
+        console.error("Join failed:", err);
+        joinedGuildId = null; refreshCards(); refreshOpenModal();
+        throw err;
+      }
+    }
+
+    async function performLeave() {
+      if (!joinedGuildId) return false;
+      const leavingId = joinedGuildId;
+      joinedGuildId = null; refreshCards(); refreshOpenModal();
+
+      if (storageMode === "local") {
+        try { localStorage.removeItem(STORAGE_KEY); return true; } 
+        catch (e) { joinedGuildId = leavingId; refreshCards(); return false; }
+      }
+      try {
+        if (!currentUser) throw new Error("No user session");
+        await fbSetDoc(fbDoc(db, "users", currentUser.uid), { joinedGuild: fbDeleteField() }, { merge: true });
+        return true;
+      } catch (err) {
+        console.error("Leave failed:", err);
+        joinedGuildId = leavingId; refreshCards(); refreshOpenModal();
+        throw err;
+      }
+    }
+
+    async function initStorage() {
+      if (!FIREBASE_CONFIGURED) {
+        fallbackToLocal("Firebase غير مُهيّأ");
+        return;
+      }
+      try {
+        updateSyncIndicator("loading", "جاري تحميل Firebase...");
+        const appMod  = await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js");
+        const authMod = await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js");
+        const fsMod   = await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js");
+
+        const app  = appMod.initializeApp(firebaseConfig);
+        authInstance = authMod.getAuth(app);
+        db = fsMod.getFirestore(app);
+
+        fbSetDoc          = fsMod.setDoc;
+        fbDoc             = fsMod.doc;
+        fbOnSnapshot      = fsMod.onSnapshot;
+        fbServerTimestamp = fsMod.serverTimestamp;
+        fbDeleteField     = fsMod.deleteField;
+        fbCollection      = fsMod.collection;
+        fbAddDoc          = fsMod.addDoc;
+        fbQuery           = fsMod.query;
+        fbOrderBy         = fsMod.orderBy;
+
+        fbSignInWithEmailAndPassword = authMod.signInWithEmailAndPassword;
+        fbSignOut = authMod.signOut;
+        fbOnAuthStateChanged = authMod.onAuthStateChanged;
+
+        // مراقبة حالة تسجيل الدخول
+        fbOnAuthStateChanged(authInstance, async (user) => {
+          if (user) {
+            currentUser = user;
+            isAdminLoggedIn = (user.uid === ADMIN_UID);
+            
+            if (isAdminLoggedIn) {
+              adminLoginState.style.display = "none";
+              adminAddState.style.display = "block";
+              adminToggleBtn.innerHTML = '<i class="fa-solid fa-plus"></i> إضافة قسم';
+            } else {
+              // لو مستخدم عادي مسجل دخول (مثلاً Anonymous)، نتعامل معه كزائر
+              if (user.isAnonymous) {
+                subscribeToMembership(user.uid);
+              } else {
+                // لو شخص سجل دخول بحساب مش أدمن، نطرده فوراً
+                showToast("هذا الحساب لا يملك صلاحيات الإدارة!");
+                await fbSignOut(authInstance);
+              }
+            }
+          } else {
+            currentUser = null;
+            isAdminLoggedIn = false;
+            
+            // تسجيل دخول مجهول للزوار العاديين
+            try {
+              await authMod.signInAnonymously(authInstance);
+            } catch (err) {
+              console.error("Anon auth failed:", err);
+              fallbackToLocal("فشل التحقق - تفعيل Anonymous");
+            }
+          }
+        });
+
+        subscribeToDepartments();
+
+      } catch (err) {
+        console.error("Firebase init error:", err);
+        fallbackToLocal("فشل الاتصال بالسحابة");
+      }
+    }
+
+    function subscribeToMembership(uid) {
+      if (unsubscribeMembership) { try { unsubscribeMembership(); } catch (e) {} unsubscribeMembership = null; }
+      unsubscribeMembership = fbOnSnapshot(fbDoc(db, "users", uid), (snap) => {
+        storageMode = "cloud";
+        updateSyncIndicator("cloud", "مزامنة سحابية");
+        const data = snap.data();
+        joinedGuildId = (data && data.joinedGuild) ? data.joinedGuild : null;
+        refreshCards();
+        refreshOpenModal();
+      }, (err) => { 
+        console.error("Snapshot error:", err); 
+        showToast("تعذر الاتصال بالسحابة"); 
+      });
+    }
+
+    function subscribeToDepartments() {
+      if (unsubscribeDepartments) { try { unsubscribeDepartments(); } catch (e) {} unsubscribeDepartments = null; }
+      const q = fbQuery(fbCollection(db, "departments"), fbOrderBy("createdAt", "desc"));
+      
+      unsubscribeDepartments = fbOnSnapshot(q, (snapshot) => {
+        if (!departmentsGrid) return;
+        if (snapshot.empty) {
+          departmentsGrid.innerHTML = `
+            <div class="dept-empty">
+              <i class="fa-solid fa-box-open" style="font-size:2rem; color:var(--text-body); margin-bottom:1rem;"></i>
+              <p>لم يتم إضافة أقسام بعد. سجل دخول كأدمن لإضافة أول قسم!</p>
+            </div>
+          `;
+          return;
+        }
+        let html = "";
+        snapshot.forEach(doc => {
+          const data = doc.data();
+          html += `
+            <div class="dept-card">
+              <div class="dept-img" style="background-image: url('${data.imageUrl}');"></div>
+              <div class="dept-content">
+                <h3>${data.title}</h3>
+                <a href="${data.websiteUrl}" target="_blank" class="btn-dept">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i> زيارة القسم
+                </a>
+              </div>
+            </div>
+          `;
+        });
+        departmentsGrid.innerHTML = html;
+      }, (err) => {
+        console.error("Error loading departments:", err);
+      });
+    }
+
+    function fallbackToLocal(reason) {
+      storageMode = "local";
+      try { joinedGuildId = localStorage.getItem(STORAGE_KEY); } catch (e) { joinedGuildId = null; }
+      updateSyncIndicator("local", reason || "وضع محلي");
+      refreshCards();
+      refreshOpenModal();
+    }
+
+    /* ===== EVENTS ===== */
+    if (guildsGrid) {
+      guildsGrid.addEventListener("click", (e) => {
+        const card = e.target.closest(".guild-card");
+        if (card && card.dataset.id) openGuildModal(card.dataset.id);
+      });
+      guildsGrid.addEventListener("keydown", (e) => {
+        if (e.key !== "Enter" && e.key !== " ") return;
+        const card = e.target.closest(".guild-card");
+        if (card && card.dataset.id) { e.preventDefault(); openGuildModal(card.dataset.id); }
+      });
+    }
+
+    if (modalClose) modalClose.addEventListener("click", closeGuildModal);
+    if (modal) { modal.addEventListener("click", (e) => { if (e.target === modal) closeGuildModal(); }); }
+    
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modal && modal.classList.contains("is-open")) closeGuildModal();
+      if (e.key === "Escape" && adminModal && adminModal.classList.contains("is-open")) { adminModal.classList.remove("is-open"); document.body.classList.remove("modal-open"); }
+    });
+
+    if (joinBtn) {
+      joinBtn.addEventListener("click", async () => {
+        if (!currentGuildId) return;
+        if (joinedGuildId) {
+          if (joinedGuildId === currentGuildId) showToast("أنت عضو بالفعل في هذه النقابة ✅");
+          else showToast(`لا يمكنك — أنت عضو في ${guildData[joinedGuildId].title} بالفعل`);
+          return;
+        }
+        if (storageMode === "loading") { showToast("جاري التحقق..."); return; }
+
+        joinBtn.disabled = true; joinBtn.textContent = "جاري الانضمام...";
+        try {
+          const ok = await performJoin(currentGuildId);
+          if (ok) { showToast(`تم انضمامك إلى ${guildData[currentGuildId].title} بنجاح 🎉`); refreshOpenModal(); }
+        } catch (err) {
+          showToast("فشل الانضمام — تحقق من الاتصال");
+        } finally {
+          joinBtn.disabled = false; refreshOpenModal();
+        }
+      });
+    }
+
+    async function handleLeave() {
+      if (!joinedGuildId) return;
+      if (storageMode === "loading") { showToast("جاري التحقق..."); return; }
+      if (!confirm(`هل أنت متأكد من مغادرة ${guildData[joinedGuildId].title}؟`)) return;
+      try {
+        const ok = await performLeave();
+        if (ok) showToast(`غادرت ${guildData[joinedGuildId].title}. يمكنك الآن الانضمام لنقابة أخرى.`);
+      } catch (err) { showToast("فشل المغادرة — حاول مجدداً"); }
+    }
+
+    if (leaveBtn) leaveBtn.addEventListener("click", handleLeave);
+    if (bannerLeaveBtn) bannerLeaveBtn.addEventListener("click", handleLeave);
+
+    if (mJoinLink) {
+      mJoinLink.addEventListener("click", (e) => {
+        if (joinedGuildId === currentGuildId) return;
+        e.preventDefault();
+        if (joinedGuildId) showToast(`لا يمكنك — أنت عضو في ${guildData[joinedGuildId].title} بالفعل`);
+        else showToast("اضغط على زر الانضمام أولاً، ثم ستُفتح لك مجموعة الواتساب");
+      });
+    }
+
+    document.querySelectorAll(".filter-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".filter-btn").forEach(b => { b.classList.remove("is-active"); b.setAttribute("aria-selected", "false"); });
+        btn.classList.add("is-active"); btn.setAttribute("aria-selected", "true");
+        applyFilter(btn.dataset.filter);
+      });
+    });
+
+    document.querySelectorAll(".faq-question").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const item = btn.closest(".faq-item");
+        const wasOpen = item.classList.contains("is-open");
+        document.querySelectorAll(".faq-item.is-open").forEach(i => i.classList.remove("is-open"));
+        if (!wasOpen) item.classList.add("is-open");
+      });
+    });
+
+    /* ===== ADMIN LOGIC ===== */
+    if (adminToggleBtn) {
+      adminToggleBtn.addEventListener("click", () => {
+        adminModal.classList.add("is-open");
+        document.body.classList.add("modal-open");
+        if (!isAdminLoggedIn) {
+          adminEmail.value = ""; adminPassword.value = "";
+        }
+      });
+    }
+
+    if (adminModalClose) {
+      adminModalClose.addEventListener("click", () => {
+        adminModal.classList.remove("is-open");
+        document.body.classList.remove("modal-open");
+      });
+    }
+
+    if (adminLoginBtn) {
+      adminLoginBtn.addEventListener("click", async () => {
+        if (!FIREBASE_CONFIGURED || !authInstance) {
+          showToast("Firebase غير متصل!");
+          return;
+        }
+        const email = adminEmail.value.trim();
+        const pwd = adminPassword.value.trim();
+        if (!email || !pwd) { showToast("يرجى إدخال البريد وكلمة المرور"); return; }
+
+        adminLoginBtn.disabled = true; adminLoginBtn.textContent = "جاري التحقق...";
+        try {
+          await fbSignInWithEmailAndPassword(authInstance, email, pwd);
+          // الـ onAuthStateChanged بيتكفل بالباقي
+        } catch (err) {
+          console.error(err);
+          showToast("بيانات الدخول غير صحيحة!");
+        } finally {
+          adminLoginBtn.disabled = false; adminLoginBtn.textContent = "تسجيل الدخول";
+        }
+      });
+    }
+
+    if (adminLogoutBtn) {
+      adminLogoutBtn.addEventListener("click", async () => {
+        if (authInstance) {
+          await fbSignOut(authInstance);
+          adminModal.classList.remove("is-open");
+          document.body.classList.remove("modal-open");
+          showToast("تم تسجيل الخروج من الإدارة");
+        }
+      });
+    }
+
+    if (addDeptForm) {
+      addDeptForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        if (!isAdminLoggedIn) { showToast("صلاحيات مفقودة! سجل دخول كأدمن أولاً."); return; }
+        if (storageMode !== "cloud" || !db) { showToast("يجب الاتصال بالسحابة أولاً!"); return; }
+
+        const title = $("deptName").value.trim();
+        const imageUrl = $("deptImage").value.trim();
+        const websiteUrl = $("deptUrl").value.trim();
+        
+        const submitBtn = addDeptForm.querySelector("button[type='submit']");
+        submitBtn.disabled = true; submitBtn.textContent = "جاري الحفظ...";
+
+        try {
+          await fbAddDoc(fbCollection(db, "departments"), {
+            title: title, imageUrl: imageUrl, websiteUrl: websiteUrl, createdAt: fbServerTimestamp()
+          });
+          showToast("✅ تم إضافة القسم بنجاح!");
+          addDeptForm.reset();
+          adminModal.classList.remove("is-open");
+          document.body.classList.remove("modal-open");
+        } catch (error) {
+          console.error("Error adding doc:", error);
+          showToast("فشل إضافة القسم. تأكد من صلاحياتك.");
+        } finally {
+          submitBtn.disabled = false; submitBtn.textContent = "حفظ القسم";
+        }
+      });
+    }
+
+    // Counters & Scroll
+    try {
+      const counters = document.querySelectorAll(".stat-number");
+      if (counters.length && "IntersectionObserver" in window) {
+        const obs = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            const el = entry.target;
+            const target = parseInt(el.dataset.count, 10) || 0;
+            const start = parseInt(el.dataset.start || "0", 10);
+            const startT = performance.now();
+            const dur = 1500;
+            function tick(now) {
+              const elapsed = now - startT;
+              const progress = Math.min(elapsed / dur, 1);
+              const eased = 1 - Math.pow(1 - progress, 3);
+              el.textContent = Math.round(start + (target - start) * eased);
+              if (progress < 1) requestAnimationFrame(tick);
+            }
+            requestAnimationFrame(tick);
+            obs.unobserve(el);
+          });
+        }, { threshold: 0.5 });
+        counters.forEach(c => obs.observe(c));
+      }
+    } catch (err) {}
+
+    function updateActiveNav() {
+      const spy = ["hero", "guilds", "departments", "features", "faq", "rules"];
+      const links = document.querySelectorAll(".nav-links a");
+      const scrollY = window.scrollY + 160;
+      let activeId = "hero";
+      spy.forEach(id => {
+        const el = document.getElementById(id);
+        if (el && el.offsetTop <= scrollY) activeId = id;
+      });
+      links.forEach(link => {
+        link.classList.toggle("active", link.getAttribute("href") === `#${activeId}`);
+      });
+    }
+
+    try {
+      let ticking = false;
+      window.addEventListener("scroll", () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => { updateActiveNav(); ticking = false; });
+      }, { passive: true });
+    } catch (err) {}
+
+    // Init
+    refreshCards();
+    applyFilter("all");
+    updateActiveNav();
+    initStorage();
+
+    window.openGuildModal  = openGuildModal;
+    window.closeGuildModal = closeGuildModal;
+
+    console.log("✅ Shiro Kingdom initialized — Admin Auth & Secure Departments");
+  </script>
+
+</body>
+</html>
